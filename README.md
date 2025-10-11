@@ -25,15 +25,59 @@ Describe your project
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+# dota burger
 
-## :rocket: Technologies ##
 
-The following tools were used in this project:
+lib/
+core/
+constants/
+api_endpoints.dart
+app_colors.dart
+app_strings.dart
 
-- [Expo](https://expo.io/)
+network/
+api_service.dart
+api_expceptions.dart
+
+utils/
+helper.dart
+validators.dart
+
+features/
+food/
+
+data/
+food_models/
+food_repository.dart
+
+view/
+food_list_view.dart
+food_detail_view.dart
+
+widgets/
+food_card.dart
+
+
+cart/
+data/
+view/
+widgets/
+main.dart
+
+auth/
+data/
+auth_repository.dart
+view/
+login_view.dart
+widgets/
+signup_view.dart
+profile/
+data/
+profile_repository.dart
+view/
+profile_view.dart
+widgets/
+splash.dart
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
