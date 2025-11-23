@@ -1,11 +1,17 @@
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class RootView extends StatelessWidget {
-  const RootView({super.key});
+class Root extends StatelessWidget {
+  const Root({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: Column(
+        children: [
+          Text('Root View'),
+        ],
+      ),
+    );
   }
 }

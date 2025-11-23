@@ -1,5 +1,6 @@
-import 'package:dota_burger/features/auth/view/login_view.dart';
-import 'package:dota_burger/features/auth/view/signup_view.dart';
+import 'package:dota_burger/features/auth/views/login_view.dart';
+import 'package:dota_burger/features/auth/views/signup_view.dart';
+import 'package:dota_burger/root.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: SignupView(),
+      home: Root(),
 
     );
   }
