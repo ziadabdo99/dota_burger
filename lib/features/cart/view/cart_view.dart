@@ -1,8 +1,7 @@
-
 import 'package:flutter/cupertino.dart';
 
-class RootView extends StatelessWidget {
-  const RootView({super.key});
+class CartView extends StatelessWidget {
+  const CartView({super.key});
 
   @override
   Widget build(BuildContext context) {
