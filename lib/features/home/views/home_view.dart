@@ -1,7 +1,8 @@
-import 'package:dota_burger/core/constants/app_colors.dart';
-import 'package:dota_burger/shared/custom_text.dart';
+import 'package:dota_burger/features/home/views/widgets/card_item.dart';
+import 'package:dota_burger/features/home/views/widgets/food_category.dart';
+import 'package:dota_burger/features/home/views/widgets/search_field.dart';
+import 'package:dota_burger/features/home/views/widgets/user_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class HomeView extends StatefulWidget {
@@ -25,94 +26,50 @@ class _HomeViewState extends State<HomeView> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            children: [
-              Gap(75),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SvgPicture.asset(
-                        height: 30,
-                        'assets/logo/logo.svg',
-                        colorFilter: ColorFilter.mode(
-                          AppColors.secondaryColor,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                      Gap(5),
-                      CustomText(
-                        text: 'Welcome,',
-                        color: const Color.fromARGB(255, 97, 94, 94),
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundImage: AssetImage('assets/images/profile.png'),
-                  ),
-                ],
-              ),
-              Gap(30),
-              Material(
-                borderRadius: BorderRadius.circular(15),
-                elevation: 2,
-                child: TextField(
-                  controller: searchController,
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    fillColor: Colors.red,
-                    hintText: 'Search for burgers, fries, etc.',
-                    prefixIcon: Icon(Icons.search),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: Colors.white),
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    Gap(100),
+                    UserHeader(),
+                    Gap(30),
+                    SearchField(searchController: searchController),
+                    Gap(30),
+                    FoodCategory(
+                      categories: categories,
+                      categoryIndex: categoryIndex,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                  ),
+                    Gap(20),
+                  ],
                 ),
               ),
-              Gap(30),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(categories.length, (index) {
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          categoryIndex = index;
-                        });
-                      },
-                      child: Container(
-                        height: 40,
-                        margin: EdgeInsets.only(right: 10),
-                        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                        decoration: BoxDecoration(
-                          color: index ==  categoryIndex ?  AppColors.primaryColor : Colors.grey[300] ,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: CustomText(
-                          text: categories[index],
-                          fontWeight: index ==  categoryIndex ? FontWeight.bold : FontWeight.normal,
-                          fontSize: 16,
-                          color:  index ==  categoryIndex ? AppColors.secondaryColor : Colors.black,
-                        ),
-                      ),
-                    );
-                  }),
+            ),
+
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              sliver: SliverGrid(
+                delegate: SliverChildBuilderDelegate(childCount: 6, (
+                  context,
+                  index,
+                ) {
+                  return CardItem(
+                    image: 'assets/test/t1.png',
+                    text: 'Cheeseburger',
+                    desc: 'Wendy\'s Burger',
+                    rate: '4.8',
+                  );
+                }),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: .71,
+                  mainAxisSpacing: 5,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
