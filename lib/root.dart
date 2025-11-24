@@ -47,21 +47,29 @@ class _RootState extends State<Root> {
               controller.jumpToPage(index);
             });
           },
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.home),
+              icon: Icon(
+                size: currentScreen == 0 ? 35 : 24,
+                CupertinoIcons.home),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.cart),
+              icon: Icon(
+                size: currentScreen == 1 ? 35 : 24,
+                CupertinoIcons.cart),
               label: 'Cart',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_restaurant_sharp),
+              icon: Icon(
+                size: currentScreen == 2 ? 35 : 24,
+                Icons.local_restaurant_sharp),
               label: 'Orders history',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.person),
+              icon: Icon(
+                size: currentScreen == 3 ? 35 : 24,
+                CupertinoIcons.person),
               label: 'Profile',
             ),
           ],
