@@ -5,8 +5,10 @@ import 'package:dota_burger/features/home/views/widgets/user_header.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../product/views/product_details_view.dart';
+
 class HomeView extends StatefulWidget {
-  HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -28,16 +30,33 @@ class _HomeViewState extends State<HomeView> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: [
+            SliverAppBar(
+              backgroundColor: Colors.white,
+              floating: true,
+              pinned: true,
+              snap: true,
+              automaticallyImplyLeading: false,
+              elevation: 0,
+              scrolledUnderElevation: 0,
+              toolbarHeight: 160,
+              flexibleSpace: Padding(
+                padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 40),
+                child: Column(
+                  children: [
+                    UserHeader(),
+                    Gap(10),
+                    SearchField(searchController: searchController),
+                  ],
+                ),
+              ),
+            ),
+
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   children: [
-                    Gap(100),
-                    UserHeader(),
-                    Gap(30),
-                    SearchField(searchController: searchController),
-                    Gap(30),
+                    Gap(10),
                     FoodCategory(
                       categories: categories,
                       categoryIndex: categoryIndex,
@@ -55,11 +74,21 @@ class _HomeViewState extends State<HomeView> {
                   context,
                   index,
                 ) {
-                  return CardItem(
-                    image: 'assets/test/t1.png',
-                    text: 'Cheeseburger',
-                    desc: 'Wendy\'s Burger',
-                    rate: '4.8',
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailsView(),
+                        ),
+                      );
+                    },
+                    child: CardItem(
+                      image: 'assets/test/t1.png',
+                      text: 'Cheeseburger',
+                      desc: 'Wendy\'s Burger',
+                      rate: '4.8',
+                    ),
                   );
                 }),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

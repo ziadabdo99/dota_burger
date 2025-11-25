@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Root extends StatefulWidget {
-  Root({super.key});
+  const Root({super.key});
 
   @override
   State<Root> createState() => _RootState();

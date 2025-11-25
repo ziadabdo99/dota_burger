@@ -4,7 +4,7 @@ import 'package:dota_burger/shared/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class FoodCategory extends StatefulWidget {
-   FoodCategory({super.key, required this.categories, required this.categoryIndex});
+   const FoodCategory({super.key, required this.categories, required this.categoryIndex});
   
   
   final int categoryIndex ;

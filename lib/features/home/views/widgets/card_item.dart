@@ -1,4 +1,5 @@
 import 'package:dota_burger/shared/custom_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CardItem extends StatelessWidget {
@@ -11,9 +12,10 @@ class CardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 15,
       color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -28,7 +30,13 @@ class CardItem extends StatelessWidget {
             ),
             CustomText(text: text, fontSize: 20, fontWeight: FontWeight.bold,),
             CustomText(text: desc, fontSize: 15),
-            CustomText(text: "⭐ $rate", fontSize: 20),
+            Row(
+              children: [
+                CustomText(text: "⭐ $rate", fontSize: 20),
+                const Spacer(),
+             Icon(CupertinoIcons.heart_fill, color: Colors.red,)
+              ],
+            ),
           ],
         ),
       ),

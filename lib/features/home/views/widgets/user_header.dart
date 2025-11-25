@@ -15,6 +15,7 @@ class UserHeader extends StatelessWidget {
                         children: [
                           Column(
      crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.center,
      children: [
        SvgPicture.asset(
          height: 30,

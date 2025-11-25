@@ -2,7 +2,6 @@ import 'package:dota_burger/core/constants/app_colors.dart';
 import 'package:dota_burger/shared/custom_button.dart';
 import 'package:dota_burger/shared/custom_text.dart';
 import 'package:dota_burger/shared/custom_text_field.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
