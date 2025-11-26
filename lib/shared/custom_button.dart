@@ -1,25 +1,33 @@
-
 import 'package:dota_burger/shared/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
+  CustomButton({
     super.key,
-    required this.text,required this.onTap,
-  }) ;
+    required this.text,
+    required this.onTap,
+    this.height,
+    this.width,
+    this.color,
+    this.borderRadius,
+  });
 
   final String text;
   final void Function()? onTap;
+  final double? height;
+  final double? width;
+  final Color? color;
+  final BorderRadiusGeometry? borderRadius;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:onTap,
+      onTap: onTap,
       child: Container(
-        width: double.infinity,
-        height: 50,
+        width: width ?? 200,
+        height: height ?? 70,
         decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(8),
+          color: color ?? Colors.brown,
+          borderRadius: borderRadius ?? BorderRadius.circular(16),
         ),
         child: Center(
           child: CustomText(

@@ -49,7 +49,10 @@ final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
                     CustomButton(onTap: () {
                       if (_formKey.currentState!.validate()) {
                       }
-                      }, text: 'Login'),
+                      }, text: 'Login',
+                      height: 50,
+                      width: double.infinity,
+                      ),
                   Spacer(),
                   Image.asset(
                     height: 150, 

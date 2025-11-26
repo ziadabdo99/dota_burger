@@ -66,7 +66,10 @@ class SignupView extends StatelessWidget {
                       CustomButton(onTap: () {
                       if (_formKey.currentState!.validate()) {
                       }
-                      }, text: 'Sign Up'),
+                      }, text: 'Sign Up',
+                       height: 50,
+                      width: double.infinity,
+                      ),
                     Spacer(),
                      Image.asset(
                       height: 150, 

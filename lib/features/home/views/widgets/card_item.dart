@@ -1,6 +1,7 @@
 import 'package:dota_burger/shared/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class CardItem extends StatelessWidget {
   const CardItem({
@@ -28,11 +29,12 @@ class CardItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            CustomText(text: text, fontSize: 20, fontWeight: FontWeight.bold,),
-            CustomText(text: desc, fontSize: 15),
+            Gap(10),
+            CustomText(text: text, fontSize: 16, fontWeight: FontWeight.bold,),
+            CustomText(text: desc, fontSize: 14, fontWeight: FontWeight.w400, color: const Color.fromARGB(255, 119, 115, 115),),
             Row(
               children: [
-                CustomText(text: "⭐ $rate", fontSize: 20),
+                CustomText(text: "⭐ $rate", fontSize: 15),
                 const Spacer(),
              Icon(CupertinoIcons.heart_fill, color: Colors.red,)
               ],
