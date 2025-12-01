@@ -27,11 +27,13 @@ class _RootState extends State<Root> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(controller: controller, children: screens),
+      body: PageView(
+        scrollBehavior: const ScrollBehavior().copyWith(overscroll: false),
+        controller: controller, children: screens),
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.only(topLeft:Radius.circular(50),topRight: Radius.circular(50)),
           color: AppColors.primaryColor,
         ),
         child: BottomNavigationBar(

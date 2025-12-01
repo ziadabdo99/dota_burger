@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
     this.height,
     this.width,
     this.color,
-    this.borderRadius,
+    this.borderRadius, this.fontSize,
   });
 
   final String text;
@@ -18,6 +18,7 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final Color? color;
   final BorderRadiusGeometry? borderRadius;
+  final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -33,7 +34,7 @@ class CustomButton extends StatelessWidget {
           child: CustomText(
             text: text,
             color: Colors.white,
-            fontSize: 18,
+            fontSize:  fontSize ?? 18 ,
             fontWeight: FontWeight.w600,
           ),
         ),
